@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class clients extends Model
 {
+    use HasFactory;
     // Models Clients
-    protected $table = 'clients';
+    protected $guarded = [];
 
     protected $fillable = [
         'name_clients',
