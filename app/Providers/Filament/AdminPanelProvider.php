@@ -70,7 +70,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentProgressbarPlugin::make()->color('#581c87'),
                 LightSwitchPlugin::make()
-                    ->position(Alignment::TopLeft)
+                    ->position(Alignment::TopRight)
                     ->enabledOn([
                         'auth.email',
                         'auth.login',
