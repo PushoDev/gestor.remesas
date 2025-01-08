@@ -17,9 +17,12 @@ return new class extends Migration
             $table->string('name_family')->nullable();
             $table->string('phone_family')->nullable();
             $table->string('address_family')->nullable();
-            $table->enum('tipo_transaccion', ['efectivo', 'transferencia']);
             $table->string('receive_family')->nullable();
+            $table->enum('tipo_transaccion', ['efectivo', 'transferencia']);
+            $table->enum('efectivo', ['cup', 'usd'])->nullable();
+            $table->enum('transferencia', ['mlc', 'cup'])->nullable();
             $table->string('card')->nullable();
+            $table->boolean('entregado')->default(false);
             $table->timestamps();
         });
     }

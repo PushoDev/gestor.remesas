@@ -11,4 +11,9 @@ class familiar extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function cliente()
+    {
+        return $this->belongsTo(clients::class, 'clients_id');
+    }
 }
