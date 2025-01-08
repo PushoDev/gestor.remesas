@@ -22,6 +22,7 @@ use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
 // Light Switch
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use Awcodes\LightSwitch\Enums\Alignment; // Alignment
+use Filament\Navigation\MenuItem;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -29,10 +30,10 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->sidebarCollapsibleOnDesktop()
             ->id('admin')
             ->path('admin')
             ->login()
+            ->topNavigation()
             ->colors([
                 // Theme for default
                 'danger' => Color::Rose,
@@ -65,6 +66,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->userMenuItems([
+                'profile' => MenuItem::make()->label('Editar Perfil'),
+                // ...
             ])
             // Plugins Installed
             ->plugins([
