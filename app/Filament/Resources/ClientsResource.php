@@ -105,6 +105,7 @@ class ClientsResource extends Resource
     {
         return [
             // Relations 1 -> 1 or 1 -> M
+            // RelationManagers\FamiliarRelationManager::class,
         ];
     }
 
