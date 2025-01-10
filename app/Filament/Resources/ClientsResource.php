@@ -37,11 +37,24 @@ class ClientsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name_clients')
+                    ->label('Nombre del Cliente')
+                    ->suffixIcon('heroicon-m-user')
+                    ->suffixIconColor('warning')
                     ->required(),
                 Forms\Components\TextInput::make('phone_clients')
+                    ->label('No. de Contacto')
+                    ->suffixIcon('heroicon-m-device-phone-mobile')
+                    ->suffixIconColor('primary')
                     ->tel()
+                    ->numeric()
+                    ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
                     ->required(),
                 Forms\Components\TextInput::make('send_clients')
+                    ->label('Cantidad de Envío')
+                    ->numeric()
+                    ->inputMode('decimal')
+                    ->suffixIcon('heroicon-m-currency-dollar')
+                    ->suffixIconColor('success')
                     ->required(),
             ]);
     }
@@ -91,7 +104,7 @@ class ClientsResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // Relations 1 -> 1 or 1 -> M
         ];
     }
 
