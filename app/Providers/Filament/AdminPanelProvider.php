@@ -22,7 +22,7 @@ use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
 // Light Switch
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use Awcodes\LightSwitch\Enums\Alignment; // Alignment
-use Filament\Navigation\MenuItem;
+use Filament\Navigation\MenuItem;  // BarNav Top
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -33,6 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->passwordReset()
             ->topNavigation()
             ->colors([
                 // Theme for default
@@ -69,7 +70,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->userMenuItems([
                 'profile' => MenuItem::make()->label('Editar Perfil'),
-                // ...
             ])
             // Plugins Installed
             ->plugins([

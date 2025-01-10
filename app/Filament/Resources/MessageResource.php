@@ -17,7 +17,15 @@ class MessageResource extends Resource
 {
     protected static ?string $model = Message::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-right';
+    protected static ?string $navigationLabel = 'Mensajeros';
+
+    // Counter
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    protected static ?string $navigationBadgeTooltip = 'Listado de Mensajeros por Zona';
 
     public static function form(Form $form): Form
     {

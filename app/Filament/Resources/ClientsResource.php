@@ -17,7 +17,20 @@ class ClientsResource extends Resource
 {
     protected static ?string $model = Clients::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationLabel = 'Clientes';
+
+    // Counter
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    protected static ?string $navigationBadgeTooltip = 'Clientes Atendidos';
+    // Global Search
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name_clienys', 'phone_clients', 'send_clients'];
+    }
 
     public static function form(Form $form): Form
     {

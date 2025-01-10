@@ -17,7 +17,15 @@ class FamiliarResource extends Resource
 {
     protected static ?string $model = Familiar::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
+    protected static ?string $navigationLabel = 'Familiares o Amigos';
+
+    // Counter
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    protected static ?string $navigationBadgeTooltip = 'Listado de familiares y amigos';
 
     public static function form(Form $form): Form
     {
